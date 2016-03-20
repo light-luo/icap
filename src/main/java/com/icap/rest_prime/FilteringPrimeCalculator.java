@@ -25,7 +25,7 @@ public class FilteringPrimeCalculator extends AbstractPrimeCalculator {
 		return inputList.parallelStream().filter(i -> isPrime(i)).collect(Collectors.toList());
 	}
 
-	boolean isPrime(Integer input) {
+	private boolean isPrime(Integer input) {
 		final int sqrt = (int) Math.sqrt(input);
 		for (int divisor = 2; divisor <= sqrt; divisor++) {
 			if (input % divisor == 0) {
