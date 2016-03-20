@@ -14,7 +14,7 @@ import org.glassfish.jersey.server.ResourceConfig;
  *
  * @author Light
  */
-public class AppServerLauncher {
+public class Main {
     // Base URI the Grizzly HTTP server will listen on
     public static final String BASE_URI = "http://localhost:8080/rest_prime/";
 

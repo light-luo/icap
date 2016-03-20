@@ -12,7 +12,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-public class AppServerLauncherTest {
+public class MainTest {
 
 	private WebTarget target;
 
@@ -21,17 +21,17 @@ public class AppServerLauncherTest {
 		// Create the client
 		Client c = ClientBuilder.newClient();
 		// Find the target
-		target = c.target(AppServerLauncher.BASE_URI);
+		target = c.target(Main.BASE_URI);
 		// Start the server
 		new Thread() { @Override public void run() {
-			try { AppServerLauncher.main(null); } catch (Exception ex) {
+			try { Main.main(null); } catch (Exception ex) {
 				throw new RuntimeException(ex); }}}.start();
-		AppServerLauncher.TESTING_LATCH.await();
+		Main.TESTING_LATCH.await();
 	}
 
 	@After
 	public void tearDown() throws Exception {
-		AppServerLauncher.WAITING_LATCH.countDown();
+		Main.WAITING_LATCH.countDown();
 	}
 
 	@Test
